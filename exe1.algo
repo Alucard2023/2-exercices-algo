@@ -1,0 +1,56 @@
+ALGORITHM checkpoint-algo1
+VAR
+tab1:ARRAY_OF INTEGER[];
+tab2:ARRAY_OF INTEGER [];
+sum,j,i :INTEGER :=0;
+
+BEGIN
+    REPEAT
+      read  (tab1:[i])
+      read  (tab2:[j])
+      i=i+1
+      j=j+1
+    UNTIL (tab1[i]=0) or (tab2(j)=0)
+    for i from 0 to tab1.lenght do
+    for j from 0 to tab2.lenght do
+    sum:= sum+ tab1(i)+tab2(j)
+    END_FOR
+END_FOR
+END
+write(sum);
+END
+
+
+
+
+PROCEDURE  dot_product (v1,v2:array of INTEGER,var dot :INTEGER)
+VAR
+    i: INTEGER;
+BEGIN
+    dot := 0;
+    i:= 0;
+    IF(v1.lenght<>v2.lenght)THEN
+    write("cannot calcul dot")
+    dot:= nan;
+    END_IF
+    WHILE (i<v1.lenght) DO
+        dot:=dot+v1[i]*v2[i]
+    END_WHILE
+END
+ALGORITHM orth_of INTEGER
+VAR
+v1,v2 : ARRAY_OF INTEGER [50];
+dot :INTEGER;
+BEGIN
+n1 := read_size();
+read_array(n1,v1);
+n2 := read_size();
+read_array(n2,v2);
+dot_product(v1,v2,dot);
+IF (dot=0) THEN
+write ("v1 and v2 are orthogonal");
+IF(dot<>0)) THEN
+    write ("v1 and v2 are not orthogonal ")
+END_IF
+END_IF
+END
